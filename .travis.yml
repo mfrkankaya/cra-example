@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mfurkankaya/docker-cra -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true mfurkankaya/docker-cra npm run test
